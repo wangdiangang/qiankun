@@ -5,21 +5,14 @@
       <ul class="sub-apps">
         <li v-for="item in microApps" :class="{active: item.activeRule === current}" :key="item.name" @click="goto(item)">{{ item.name }}</li>
       </ul>
-      <div class="userinfo">主应用的state：{{ JSON.stringify(user) }}</div>
-      <!-- <header>
-        <ul>
-          <li v-for="i in 5" :key="i" style="display:inline">
-            <button>第{{i}}个</button>
-          </li>
-        </ul>
-      </header> -->
     </div>
     <div class="aside">
       <ul>
-        <li v-for="i in 40" :key="i" @click="click(i)">第{{i}}个</li>
+        <li v-for="i in 40" :key="i" @click="click(i)">{{current.substr(5)}}第{{i}}个</li>
       </ul>
     </div>
     <div id="subapp-viewport"></div>
+    <footer>底部啊</footer>
   </div>
 </template>
 
@@ -94,6 +87,7 @@ export default {
     NProgress.start()
   },
   mounted () {
+    localStorage.setItem('username','张三')
     this.listenRouterChange()
   }
 }
@@ -112,7 +106,7 @@ html, body{
     left: 0;
     top: 50px;
     border: 1px solid red;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 50px);
     width: 200px;
     overflow-y: scroll;
     li{
@@ -121,11 +115,17 @@ html, body{
     }
     #subapp-viewport{
       margin-left: 200px;
-      max-height: calc(100vh - 80px);
+      min-height: calc(100vh - 100px);
+      max-height: calc(100vh - 100px);
       border: 1px solid blue;
       overflow-y: scroll;
     }
-   
+   footer{
+     border:1px solid blue;
+     height: 50px;
+     margin-left: 200px;
+    text-align: center;
+   }
     .layout-header{
       height: 50px;
       width: 100%;
