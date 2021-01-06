@@ -11,3 +11,8 @@ qiankun 实战 demo，父应用 vue，子应用用 react 和 vue
 # main
  mian基座 在项目 sub-vue  sub-react  sub-vue-next
  
+
+## ???
+|问题|解决|
+|store值穿透|无|
+|git子项目独立仓库|无|
